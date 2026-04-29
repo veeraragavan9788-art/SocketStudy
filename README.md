@@ -87,11 +87,33 @@ conn.send(message.encode())
 conn.close()
 server_socket.close()
 
+2. Client Program (client.py)
+import socket
+
+# Create socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Connect to server
+host = '127.0.0.1'
+port = 12345
+client_socket.connect((host, port))
+
+# Send message to server
+message = "Hello Server!"
+client_socket.send(message.encode())
+
+# Receive response from server
+data = client_socket.recv(1024).decode()
+print("Server says:", data)
+
+# Close socket
+client_socket.close()
 ```
 
 OUTPUT :
 
 <img width="1471" height="847" alt="image" src="https://github.com/user-attachments/assets/947462bf-e163-408c-a280-c30ae5591030" />
+<img width="1484" height="811" alt="Screenshot 2026-04-29 111357" src="https://github.com/user-attachments/assets/ab6229ac-0fec-4f3a-9b40-addb9c08b6b7" />
 
 
 ## Result:
